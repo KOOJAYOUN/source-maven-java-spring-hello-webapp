@@ -27,21 +27,21 @@ pipeline {
     stage('Build Docker Image') {
       agent any
       steps {
-        sh '<docker build -t hello:latest .>'
+        sh 'docker image build -t hello:latest .'
       }
     }
     stage('Tag Docker Image') {
       agent any
       steps {
-        sh '<docker tag hello:latest kiwini99/hello:$BUILD_NUMBER>'
+        sh 'docker tag hello:latest kiwini99/hello:$BUILD_NUMBER'
       }
     }
     stage('Publish Docker Image') {
       agent any
       steps {
         withDockerRegistry(credentialsId: 'docker-hub-token', url: 'https://index.docker.io/v1/') {
-          sh '<docker image push kiwini99/hello:$BUILD_NUMBER>'
-          sh '<docker image push kiwini99/hello:$latest>'
+          sh 'docker image push kiwini99/hello:$BUILD_NUMBER'
+          sh 'docker image push kiwini99/hello:$latest'
         }
       }
     }
