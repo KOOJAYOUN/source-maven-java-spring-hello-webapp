@@ -6,7 +6,8 @@
   - name: Create & Start Container
     docker_container:
       name: webserver
-      image: "kiwini99/hello:{{ lookup('env','BUILD_NUMBER') }}"
+      # image: "kiwini99/hello:{{ lookup('env','BUILD_NUMBER') }}"
+      image: "kiwini99/hello:2"
       state: started
       ports:
       - "80:8080"
