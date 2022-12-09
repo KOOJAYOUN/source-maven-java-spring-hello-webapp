@@ -27,13 +27,13 @@ pipeline {
     stage('Build Docker Image') {
       agent any
       steps {
-        sh 'docker image build -t hello:latest .'
+        sh 'docker image build -t kiwin99/hello:latest .'
       }
     }
     stage('Tag Docker Image') {
       agent any
       steps {
-        sh 'docker tag hello:latest kiwini99/hello:$BUILD_NUMBER'
+        sh 'docker tag kiwini99/hello:latest kiwini99/hello:$BUILD_NUMBER'
       }
     }
     stage('Publish Docker Image') {
