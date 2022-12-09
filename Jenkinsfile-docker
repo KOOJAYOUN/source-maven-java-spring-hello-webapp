@@ -27,7 +27,7 @@ pipeline {
     stage('Build Docker Image') {
       agent any
       steps {
-        sh 'docker image build -t kiwin99/hello:latest .'
+        sh 'docker image build -t kiwini99/hello:latest .'
       }
     }
     stage('Tag Docker Image') {
